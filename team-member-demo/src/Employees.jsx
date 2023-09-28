@@ -88,25 +88,31 @@ const Employees = () => {
         designation: "Graphic Designer",
         gender: "male",
         teamName: "TeamD"
-      }])
+      }]);
 
     return (
         <main className="container">
-            <div class="row">
+            <div class="row justify-content-center mt-3 mb-3">
                 <div class="col -8">
+                  <div className="card-collection">
                     {
                         employees.map((employee) => (
-                            <div id={employee.id} className="card">
-                                <img src={femaleProfile} className="card-img-top" />
+                            <div id={employee.id} className="card m-2" style={{cursor: "pointer" }}>
+
+
+                                {(employee.gender === 'male')?<img src={maleProfile} className="card-img-top" />
+                                                             :<img src={femaleProfile} className="card-img-top" />}
                                 <div className="card-body">
                                     <h5 className="card-title">Full Name: {employee.fullName}</h5>
-                                <div/>
-                            <div/>
+                                    <p className="card-text"><b>Designation:</b> {employee.designation}</p>
+                                </div>
+                            </div>
                         ))
                     }
+                  </div>
                 </div>
             </div>
         </main>
-    );
+    )
 }
 export default Employees
